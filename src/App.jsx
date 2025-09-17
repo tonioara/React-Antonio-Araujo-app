@@ -15,7 +15,7 @@ function App() {
     <NavBarHeader />
       <Routes>
         <Route path="/" element={ <ItemListContainer mensajeBienvenida='Bienvenida a la venta de tarjetas de Harry Potter' /> } />
-        {/* Cambia :ItemId por :itemId para que coincida con const { itemId } = useParams(); */}
+       
         <Route path="/Item/:itemId" element={ <ItemDetailContainer /> } />
         <Route path="*" element={ <h2>Error 404 - Página no encontrada</h2> } />
       </Routes>

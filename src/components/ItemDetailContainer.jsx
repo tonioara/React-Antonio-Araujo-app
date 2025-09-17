@@ -7,7 +7,7 @@ const ItemDetailContainer = () => {
   const [detail, setDetail] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const { itemId } = useParams(); // Asegúrate de importar useParams desde 'react-router-dom'
+  const { itemId } = useParams();
   console.log('ID del ítem:', itemId);
 
   useEffect(() => {
