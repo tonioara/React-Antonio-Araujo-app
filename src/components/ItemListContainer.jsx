@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import ItemList from './itemsList';
 import { ObtenerDatosApi } from '../mock/MockAsyncService';
 
+import { useParams } from 'react-router-dom';
+
 function ItemListContainer({ mensajeBienvenida }) {
 //  const [dataApi, setDataApi] = useState([]);
   const [loading, setLoading] = useState(true);
   const [dataApi, setDataApi] = useState([]);
 
+  const {house} = useParams();
+  console.log(house);
   // const [gryffindor, setGryffindor] = useState([]);
   // const [hufflepuff, setHufflepuff] = useState([]);
   // const [ravenclaw, setRavenclaw] = useState([]);
@@ -15,7 +19,14 @@ function ItemListContainer({ mensajeBienvenida }) {
   useEffect(() => {
     ObtenerDatosApi()
       .then(data => {
-        setDataApi(data);
+        if(house){
+
+          const houseCharacters = data.filter(character => character.house === house);
+          setDataApi(houseCharacters);
+        } else{
+          setDataApi(data);
+        }
+        
         
         // console.log(data);
         // const gryffindorCharacters = data.filter(character => character.house === 'Gryffindor');
@@ -33,7 +44,7 @@ function ItemListContainer({ mensajeBienvenida }) {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [house]);
 
   if (loading) {
     return <h2>Cargando...</h2>;
@@ -42,7 +53,7 @@ function ItemListContainer({ mensajeBienvenida }) {
   
   return (
     <div className="item-list-container" style={{ textAlign: 'center', backgroundColor:'silver' }}>
-      <h1>{mensajeBienvenida}</h1>
+      <h1>{mensajeBienvenida} {house && <span style={{textTransform:'capitalize'}}>{house}</span>}</h1>
       <ItemList dataApi={dataApi} />
 
       
