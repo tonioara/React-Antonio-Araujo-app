@@ -1,0 +1,10 @@
+.nav-link-hover-border {
+  border: 1px solid transparent; /* Borde transparente por defecto */
+  border-radius: 5px; /* Opcional: añade esquinas redondeadas */
+  padding: 8px 12px; /* Añade espaciado para evitar saltos de diseño */
+  transition: border-color 0.3s ease; /* Transición suave del color */
+}
+
+.nav-link-hover-border:hover {
+  border-color: white; /* Borde blanco al pasar el mouse */
+}

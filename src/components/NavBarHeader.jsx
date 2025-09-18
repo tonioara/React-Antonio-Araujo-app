@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
+import '../Styles/NavBar.css'
 
 import LogoWeb from '../assets/harrypotter-logo.png';
 import CartWidget from './CartWidget';
@@ -13,6 +14,7 @@ function NavBarHeader () {
     height: '50px',
     borderRadius: '50%',
   }
+  
 
   return (
     <>
@@ -26,10 +28,10 @@ function NavBarHeader () {
 
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
             <Nav className="mx-auto">
-            <Nav.Link as={NavLink} to='/house/Gryffindor' className="mx-4">Gryffindor</Nav.Link>
-            <Nav.Link as={NavLink} to='/house/Slytherin'  className="mx-4">Slytherin</Nav.Link>
-            <Nav.Link as={NavLink} to='/house/Hufflepuff'  className="mx-4">Hufflepuff</Nav.Link>
-            <Nav.Link as={NavLink} to='/house/Ravenclaw'  className="mx-4">Ravenclaw</Nav.Link>
+            <Nav.Link as={NavLink} to='/house/Gryffindor' className="mx-4 nav-link-hover-border">Gryffindor</Nav.Link>
+            <Nav.Link as={NavLink} to='/house/Slytherin'  className="mx-4 nav-link-hover-border ">Slytherin</Nav.Link>
+            <Nav.Link as={NavLink} to='/house/Hufflepuff'  className="mx-4 nav-link-hover-border">Hufflepuff</Nav.Link>
+            <Nav.Link as={NavLink} to='/house/Ravenclaw'  className="mx-4 nav-link-hover-border ">Ravenclaw</Nav.Link>
             </Nav>
             <Nav  className=" bg-dark" >
               <CartWidget  />

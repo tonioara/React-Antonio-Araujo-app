@@ -5,7 +5,7 @@ import { ObtenerDatosApi } from '../mock/MockAsyncService';
 import { useParams } from 'react-router-dom';
 
 function ItemListContainer({ mensajeBienvenida }) {
-//  const [dataApi, setDataApi] = useState([]);
+
   const [loading, setLoading] = useState(true);
   const [dataApi, setDataApi] = useState([]);
 
