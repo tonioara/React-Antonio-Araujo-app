@@ -29,7 +29,7 @@ const ItemDetailContainer = () => {
       ) : detail ? (
         
         
-        <div className="item-detail-container" style={{ textAlign: 'center', backgroundColor:'silver', padding: '20px' }}>
+        <div className="item-detail-container text-white " style={{ textAlign: 'center', backgroundColor:'#3b3f44ff', padding: '20px' }}>
           <h1>Detalles del Personaje</h1>
           
            <ItemDetail item={detail} /> 
