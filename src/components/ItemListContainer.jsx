@@ -52,8 +52,8 @@ function ItemListContainer({ mensajeBienvenida }) {
 
   
   return (
-    <div className="item-list-container" style={{ textAlign: 'center', backgroundColor:'silver' }}>
-      <h1>{mensajeBienvenida} {house && <span style={{textTransform:'capitalize'}}>{house}</span>}</h1>
+    <div className="item-list-container text" style={{ textAlign: 'center', backgroundColor:'#3b3f44ff',  }}>
+      <h1 className="text-white">{mensajeBienvenida} {house && <span style={{textTransform:'capitalize' , }}>{house}</span>}</h1>
       <ItemList dataApi={dataApi} />
 
       
