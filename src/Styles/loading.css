@@ -1,0 +1,60 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  height: 100vh;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 1000;
+}
+
+.loading-animation {
+  
+  width: 100%;
+  height: 100%;
+  
+  
+  object-fit: cover;
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  font-family: 'Harry Potter', sans-serif;
+}
+
+
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  width: 100vw;  
+  position: fixed; 
+  top: 0;
+  left: 0;
+  background-color: #000;
+  z-index: 1000;
+}
+
+.loading-animation {
+  width: auto;
+  height: 80%; 
+  max-width: 90%; 
+  object-fit: contain; 
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+}

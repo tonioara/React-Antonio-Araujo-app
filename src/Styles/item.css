@@ -1,0 +1,103 @@
+.character-card {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important; 
+}
+
+.character-card:hover {
+  transform: translateY(-5px) !important; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2)   ; 
+}
+
+.card-hogwarts {
+  background-color: rgba(20, 20, 20, 0.85) !important; 
+  color: #dbd1d1 !important;
+  border: 1px solid #999 !important;
+}
+
+.card-hogwarts h3 {
+  color: #1a1a1a !important ;
+}
+
+
+.card-gryffindor {
+  border: 1px solid #740001 !important; 
+  background-color: #380101 !important; 
+  color: #ffc200 !important; 
+}
+.card-gryffindor h3 {
+  color: #ffc200 !important;
+}
+
+
+
+.card-slytherin {
+  border: 1px solid #1a472a   !important; 
+  background-color: #1a9140 !important; 
+  color: #e4e1e1 !important; 
+}
+.card-slytherin h3 {
+  color: #0a3b03 !important ;
+}
+
+
+.card-hufflepuff {
+  border: 1px solid #60501a !important; 
+  background-color: #ffdb00 !important; 
+  color: #372e29 !important; 
+}
+.card-hufflepuff h3 {
+  color: #372e29 !important ;
+}
+
+
+
+.card-ravenclaw {
+  border: 1px solid #0e1a40 !important; 
+  background-color: #10172e !important ;
+  color: #b68439 !important; 
+}
+.card-ravenclaw h3 {
+  color: #b68439 !important ;
+}
+.card-gryffindor-detail {
+  background-color: #380101 !important;
+  border-color: #740001 !important;
+  color: #ffc200 !important;
+}
+.card-gryffindor-detail .card-title,
+.card-gryffindor-detail .card-text strong {
+  color: #ffc200 !important;
+}
+
+.card-slytherin-detail {
+  background-color: #1a9140 !important;
+  border-color: #1a472a !important;
+  color: #e4e1e1 !important;
+}
+.card-slytherin-detail .card-title,
+.card-slytherin-detail .card-text strong {
+  color: #e4e1e1 !important;
+}
+
+.card-hufflepuff-detail {
+  background-color: #ffdb00 !important;
+  border-color: #60501a !important;
+  color: #372e29 !important;
+}
+.card-hufflepuff-detail .card-title,
+.card-hufflepuff-detail .card-text strong {
+  color: #372e29 !important;
+}
+
+.card-ravenclaw-detail {
+  background-color: #10172e !important;
+  border-color: #0e1a40 !important;
+  color: #b68439 !important;
+}
+.card-ravenclaw-detail .card-title,
+.card-ravenclaw-detail .card-text strong {
+  color: #b68439 !important;
+}
+
+

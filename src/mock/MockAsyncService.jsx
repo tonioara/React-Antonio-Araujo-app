@@ -249,6 +249,6 @@ export function GetItemById(id) {
       } else {
         reject(new Error(`Personaje con ID ${id} no encontrado.`)); 
       }
-    }, 2000); 
+    }, 3000); 
   });
 }
