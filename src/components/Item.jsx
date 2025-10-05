@@ -13,7 +13,6 @@ const Item = ({item, currentHouse}) => {
   }else{
     cardClassName += ` card-hogwarts`;
   }
-console.log(cardClassName);
 
   return (
     <Card  key={item.id} style={{ width: '18rem', margin: '1rem' }} className={cardClassName}>
