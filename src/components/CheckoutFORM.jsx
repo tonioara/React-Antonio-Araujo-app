@@ -5,54 +5,46 @@ import { CartContext } from '../context/CartContext';
 import CartVacio from './CartVacio';
 import { Link } from 'react-router-dom';
 import '../Styles/Checkout.css';
+import { useForm } from 'react-hook-form';
 
 
 const Checkout = () => {
 
-    const [buyer, setBuyer] = useState({})
-    const [checkMail, setCheckMail] = useState('')
+    
+    
     const [orderId, setOrderId] = useState(null)
-    const [errorMsg, setErrorMsg] = useState('')
+    
     const { cart, clearCart, getTotalPrice } = useContext(CartContext)
+    const {register,handleSubmit, formState:{errors},getValues}=useForm()
 
     
-    const buyerData = (e) => {
-        setBuyer(
-            {
-                ...buyer,
-                [e.target.name]: e.target.value
-            }
-        )
-        
-        setErrorMsg(''); 
-    }
 
-    const finalizarCompra = (e) => {
-        e.preventDefault()
-        if (buyer.email !== checkMail) {
-            setErrorMsg('¡Atención! Los correos electrónicos ingresados no coinciden.');
-            return;
-        }
-
-        
+    const finalizarCompra = (dataForm) => {
+       
+       
+       
         let order = {
-            comprador: buyer,
+            comprador:{
+                name: dataForm.name,
+                lastname: dataForm.lastname,
+                address: dataForm.address,
+                email: dataForm.email
+            },
             compras: cart,
             total: getTotalPrice(),
             fecha: serverTimestamp()
         }
 
-        const ventas = collection(db, "orders")
+         const ventas = collection(db, "orders")
 
-        addDoc(ventas, order)
-            .then((res) => {
-                setOrderId(res.id)
-                clearCart()
-            })
-            .catch((error) => {
-                console.error("Error al crear la orden:", error);
-                setErrorMsg('Hubo un error al procesar tu compra. Intenta de nuevo.');
-            })
+         addDoc(ventas, order)
+             .then((res) => {
+                 setOrderId(res.id)
+                 clearCart()
+             })
+             .catch((error) => {
+                 console.error("Error al crear la orden:", error);
+             })
     }
 
 
@@ -80,16 +72,7 @@ const Checkout = () => {
         <div className="container mt-5 mb-5">
             <h2 className="text-center mb-4">Finalizar Compra - Datos de Envío</h2>
             <div className="card shadow-lg p-4">
-
-
-                {errorMsg && (
-                    <div className="alert alert-danger" role="alert">
-                        {errorMsg}
-                    </div>
-                )}
-               
-
-                <form onSubmit={finalizarCompra}>
+                <form onSubmit={handleSubmit(finalizarCompra)}>
 
                     <div className="row">
                         <div className="col-md-6 mb-3">
@@ -97,22 +80,23 @@ const Checkout = () => {
                             <input
                                 type="text"
                                 className="form-control"
-                                id="nombre"
                                 name="name"
-                                onChange={buyerData}
-                                required
+                                {...register("name", { required: true, minLength: 2, maxLength: 30, pattern: /^[A-Za-z]+$/i })}
+            
                             />
+                            {errors?.name?.type === "required" && <span  style={{color:'red'}}>Por favor complete el campo.</span>}
+                            {errors?.name?.type === "minLength" && <span  style={{color:'red'}}>El nombre debe contener mínimo 3 caracteres.</span>}
                         </div>
                         <div className="col-md-6 mb-3">
                             <label htmlFor="apellido" className="form-label">Apellido</label>
                             <input
                                 type="text"
                                 className="form-control"
-                                id="apellido"
                                 name="lastname"
-                                onChange={buyerData}
-                                required
+                                {...register("lastname", { required: true, minLength: 2, maxLength: 30, pattern: /^[A-Za-z]+$/i })}
                             />
+                            {errors?.lastname?.type === "required" && <span  style={{color:'red'}}>Por favor complete el campo.</span>}
+                            {errors?.lastname?.type === "minLength" && <span  style={{color:'red'}}>El apellido debe contener mínimo 2 caracteres.</span>}
                         </div>
                     </div>
 
@@ -121,11 +105,12 @@ const Checkout = () => {
                         <input
                             type="text"
                             className="form-control"
-                            id="direccionEnvio"
-                            name="address" 
-                            onChange={buyerData}
-                            required
+                            name="address"
+                            {...register("address", { required: true, minLength: 5, maxLength: 100 })}
                         />
+                        {errors?.address?.type === "required" && <span  style={{color:'red'}}>Por favor complete el campo.</span>}
+                        {errors?.address?.type === "minLength" && <span  style={{color:'red'}}>La dirección debe contener mínimo 10 caracteres.</span>}
+                        {errors?.address?.type === "maxLength" && <span  style={{color:'red'}}>La dirección es demasiado larga.</span>}
                     </div>
 
                     <div className="row">
@@ -134,23 +119,23 @@ const Checkout = () => {
                             <input
                                 type="email"
                                 className="form-control"
-                                id="mail"
                                 name="email" 
-                                onChange={buyerData}
-                                required
+                                {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}
                             />
+                             {errors?.email?.type === "required" && <span  style={{color:'red'}}>Por favor complete el campo.</span>}
                         </div>
                         <div className="col-md-6 mb-3">
                             <label htmlFor="mailConfirmacion" className="form-label">Confirmar Correo</label>
                             <input
                                 type="email"
                                 className="form-control"
-                                id="mailConfirmacion"
                                 name="mailConfirm"
-                                
-                                onChange={(e) => setCheckMail(e.target.value)}
-                                required
+                                {...register("mailConfirm", { 
+                                    required:true, validate:{equalsMails: mail2 => mail2 === getValues().email
+                                }})}
                             />
+                                {errors?.mailConfirm?.type === "required" && <span  style={{color:'red'}}>Por favor complete el campo.</span>}
+                                {errors?.mailConfirm?.type === "equalsMails" && <span  style={{color:'red'}}>Los correos electrónicos no coinciden.</span>}
                         </div>
                     </div>
 

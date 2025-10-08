@@ -7,6 +7,12 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../service/firebase';
 
 const ItemDetailContainer = () => {
+  
+ const [detail, setDetail] = useState(null);
+ const [loading, setLoading] = useState(true);
+ const [inValidId, setInvalidId] = useState(null);
+ const { itemId } = useParams();
+
 
    const containerStyle = { 
     textAlign: 'center', 
@@ -17,14 +23,6 @@ const ItemDetailContainer = () => {
     color: 'white' ,
   };
 
-
-
-  const [detail, setDetail] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [inValidId, setInvalidId] = useState(null);
-
-  const { itemId } = useParams();
-  
   useEffect(() => {
     setLoading(true);
     const docRef= doc(db, 'productos', itemId)

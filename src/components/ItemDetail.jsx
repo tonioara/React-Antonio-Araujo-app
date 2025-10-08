@@ -3,6 +3,7 @@ import ItemCount from './ItemCount';
 import '../Styles/item.css';
 import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const ItemDetail = ({ item }) => {
   const [agregadoAlCarrito, setAgregadoAlCarrito]= useState(false);
@@ -12,8 +13,47 @@ const ItemDetail = ({ item }) => {
   const onAdd = (cantidad) => {
     addItem(item, cantidad);
     setAgregadoAlCarrito(true);
-    console.log(`compraste ${cantidad} unidades de ${item.name}`);
-  };
+    const contentHTML = `
+        <div style="
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            text-align: left;
+            padding: 5px 0;
+            width: 100%;
+        ">
+            <img 
+                src="${item.image}" 
+                alt="${item.name}" 
+                style="
+                    width: 40px; 
+                    height: 40px; 
+                    border-radius: 5px; 
+                    object-fit: cover;
+                " 
+            />
+            <div style="flex-grow: 1;">
+                <p style="margin: 0; font-weight: bold; font-size: 1em; color: inherit;">
+                    ${item.name}
+                </p>
+                <p style="margin: 0; font-size: 0.9em; color: inherit;">
+                    Cantidad: <span style="font-weight: bold;">${cantidad}</span>
+                </p>
+            </div>
+        </div>
+    `;
+    Swal.fire({
+      position: 'bottom-start',  
+      title: `Has agregado ${cantidad} ${item.name} al carrito.`,
+      showConfirmButton: false,
+      timer: 1500,
+      html: contentHTML,
+      background: '#1d1c1cff',
+      color: '#fff',
+      toast: true,
+
+    });
+  }
 
   if (!item) {
     return (

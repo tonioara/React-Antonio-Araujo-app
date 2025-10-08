@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
-import CartVacio from './CartVacio';
+import Swal from 'sweetalert2';
 import ItemCart from './ItemCart';
 import '../Styles/CartView.css';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,34 @@ const CartView = () => {
   const { cart, removeItem, clearCart,getTotalPrice } = useContext(CartContext);
 
   const total = getTotalPrice();
+   const preConfirm = ()=> {
+        Swal.fire({
+            title:'¿Estas seguro de borrar todo el carrito?',
+            icon:'question',
+            showDenyButton:true,
+            denyButtonText:'No',
+            confirmButtonText:'Si',
+            background:'#1d1c1cff',
+            color:'#fff',
+            toast:true,
+        }).then((result)=>{
+            if(result.isConfirmed){
+                clearCart()
+            }else if(result.isDenied){
+                Swal.fire({
+                title: 'Cancelado',
+                text: 'Tu carrito está a salvo.',
+                icon: 'info',
+                toast: true,
+                position: 'top-end', 
+                showConfirmButton: false,
+                timer: 2000,
+                background:'#1d1c1cff',
+                color:'#fff',
+            });
+            }
+        })
+    }
 
   return (
     <div className="cart-view-container">
@@ -34,7 +62,7 @@ const CartView = () => {
           <p>${total}</p>
         </div>
         <div className="cart-actions"> 
-             <button onClick={clearCart} className="btn-clear">
+             <button onClick={preConfirm} className="btn-clear">
                  Vaciar Carrito
              </button>
              <Link to="/checkout" className="btn-checkout">
