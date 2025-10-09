@@ -65,7 +65,7 @@ const CartView = () => {
              <button onClick={preConfirm} className="btn-clear">
                  Vaciar Carrito
              </button>
-             <Link to="/checkout" className="btn-checkout">
+             <Link to="/checkoutFORM" className="btn-checkout">
                  Proceder a Pagar
              </Link>
         </div>

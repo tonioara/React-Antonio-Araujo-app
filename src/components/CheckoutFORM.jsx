@@ -8,7 +8,7 @@ import '../Styles/Checkout.css';
 import { useForm } from 'react-hook-form';
 
 
-const Checkout = () => {
+const CheckoutFORM = () => {
 
     
     
@@ -151,4 +151,4 @@ const Checkout = () => {
     )
 };
 
-export default Checkout;
+export default CheckoutFORM;

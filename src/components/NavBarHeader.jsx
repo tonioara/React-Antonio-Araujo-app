@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import '../Styles/NavBar.css'
 
-import LogoWeb from '../assets/harrypotter-logo.png';
+
 import CartWidget from './CartWidget';
 
 function NavBarHeader () {
@@ -20,7 +20,7 @@ function NavBarHeader () {
       <Navbar expand="lg" className="bg-dark" variant="dark">
         <Container fluid className="px-5">
           <Navbar.Brand as={NavLink} to='/'>
-            <img src={LogoWeb} alt='Logo de la Web' style={stylesLogo} />
+            <img src='/public/images/harrypotter-logo.png' alt='Logo de la Web' style={stylesLogo} />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

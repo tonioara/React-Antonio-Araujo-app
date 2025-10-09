@@ -1,12 +1,12 @@
 import React from 'react';
 import '../Styles/loading.css';
-import solosombrero from '../assets/sombreroGryffindor.gif'; 
+ 
 
 const LoadingDetail = () => {
   return (
     <div className="loading-container">
       <img
-        src={solosombrero}
+        src='/public/images/solosombrero.gif'
         alt="El Sombrero Seleccionador está pensando..."
         className="loading-animation"
       />

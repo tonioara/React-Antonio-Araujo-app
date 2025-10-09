@@ -3,22 +3,20 @@ import { collection, getDocs, query,where} from 'firebase/firestore';
 import { db } from '../service/firebase';
 import ItemList from './itemsList';
 
-import Gryffindor from '../assets/gryffindorFondo.1.jpg';
-import Slytherin from '../assets/slytherinFondo.1.jpg';
-import Hufflepuff from '../assets/hufflepuffFondo.jpg';
-import Ravenclaw from '../assets/ravenclawFondo.jpg';
-import Hogwarts from '../assets/HogwartsFondo.avif';
 
 import TrenLoading from './TrenLoading';
 
 import { useParams } from 'react-router-dom';
 
+
 const houseBackgrounds = {
-  Gryffindor: Gryffindor,
-  Slytherin: Slytherin,
-  Hufflepuff: Hufflepuff,
-  Ravenclaw: Ravenclaw,
+  Gryffindor: '/public/images/gryffindorFondo.1.jpg', 
+  Slytherin: '/public/images/slytherinFondo.1.jpg',   
+  Hufflepuff: '/public/images/hufflepuffFondo.jpg', 
+  Ravenclaw: '/public/images/ravenclawFondo.jpg',   
 };
+
+const HogwartsBackground = '/public/images/HogwartsFondo.avif';
 
 function ItemListContainer({ mensajeBienvenida }) {
 
@@ -26,11 +24,14 @@ function ItemListContainer({ mensajeBienvenida }) {
   const [dataApi, setDataApi] = useState([]);
 
   const {house} = useParams();
- 
+  
 // FIREBASE 
   useEffect(() => {
     setLoading(true);
-    const prodCollection = house ? query(collection(db, 'productos'), where( "house", "==", house)) : collection(db, 'productos')
+    
+    const prodCollection = house 
+      ? query(collection(db, 'productos'), where( "house", "==", house)) 
+      : collection(db, 'productos')
     
     
     getDocs(prodCollection)
@@ -54,45 +55,32 @@ function ItemListContainer({ mensajeBienvenida }) {
       })
   }, [house]);
 
-const backgroundImage = house ? `url(${houseBackgrounds[house]})` : 'url(' + Hogwarts + ')';
+// Uso de las rutas absolutas para crear el estilo
+const backgroundImage = house ? `url(${houseBackgrounds[house]})` : `url(${HogwartsBackground})`;
 
   return (
     <>
-     
+      
       {
         loading ? <TrenLoading  /> 
         :
         <div 
           className="item-list-container" 
-         style={{
-         textAlign: 'center',
-         backgroundImage: backgroundImage,
-         backgroundSize: 'contain',
-         backgroundPosition: 'center',
-         backgroundAttachment: 'fixed',
-         minHeight: '100vh',
-         padding: '20px',
-         }}>
-       <h1 className="text-white">{mensajeBienvenida} {house && <span style={{textTransform:'capitalize' , }}>{house}</span>}</h1>
-       <ItemList dataApi={dataApi} currentHouse={house} /> 
+          style={{
+           textAlign: 'center',
+           backgroundImage: backgroundImage,
+           backgroundSize: 'contain',
+           backgroundPosition: 'center',
+           backgroundAttachment: 'fixed',
+           minHeight: '100vh',
+           padding: '20px',
+           }}>
+        <h1 className="text-white">{mensajeBienvenida} {house && <span style={{textTransform:'capitalize' , }}>{house}</span>}</h1>
+        <ItemList dataApi={dataApi} currentHouse={house} /> 
       </div>
 
       }
     </>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
   );
 }

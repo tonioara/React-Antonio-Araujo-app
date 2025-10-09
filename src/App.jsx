@@ -7,8 +7,8 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Error404 from './components/Error404';
 import { CartProvider } from './context/CartContext'; 
 import CartContainer from './components/CartContainer';
-import Checkout from './components/Checkout';
 import Footer from './components/Footer';
+import CheckoutFORM from './components/CheckoutFORM';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
               <Route path='/house/:house' element={<ItemListContainer mensaje="Estas en la casa de : " />} />
               <Route path="/cart" element={<CartContainer />} />
               <Route path="/Item/:itemId" element={<ItemDetailContainer />} />
-              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/checkoutFORM" element={<CheckoutFORM />} />
               <Route path="*" element={<Error404 />} />
             </Routes>
           </div>
