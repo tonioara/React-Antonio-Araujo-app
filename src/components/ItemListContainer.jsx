@@ -9,9 +9,9 @@ import TrenLoading from './TrenLoading';
 import { useParams } from 'react-router-dom';
 
 const houseBackgrounds = {
-  // Asegúrate de que las claves sigan siendo 'Gryffindor', 'Slytherin', etc.
+ 
   Gryffindor: '/Img/Gryffindor.jpg',
-  Slytherin: '/Img/Slytherin.jpg',   // ¡Así debe quedar!
+  Slytherin: '/Img/Slytherin.jpg',   
   Hufflepuff: '/Img/Hufflepuff.jpg',
   Ravenclaw: '/Img/Ravenclaw.jpg',
 };
@@ -55,9 +55,9 @@ function ItemListContainer({ mensajeBienvenida }) {
       })
   }, [house]);
 
-const HogwartsBackground = 'images/HogwartsFondo.avif'; // ¡El de Hogwarts también debe omitir 'public'!
+const HogwartsBackground = '/Img/HogwartsFondo.avif'; 
 
-// Y en tu JSX:
+
 const backgroundImage = house ? `url(${houseBackgrounds[house]})` : `url(${HogwartsBackground})`;
 
   return (
