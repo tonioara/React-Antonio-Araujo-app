@@ -6,7 +6,7 @@ const LoadingDetail = () => {
   return (
     <div className="loading-container">
       <img
-        src='/public/images/solosombrero.gif'
+        src='/Img/solosombrero.gif'
         alt="El Sombrero Seleccionador está pensando..."
         className="loading-animation"
       />

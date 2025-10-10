@@ -20,7 +20,7 @@ function NavBarHeader () {
       <Navbar expand="lg" className="bg-dark" variant="dark">
         <Container fluid className="px-5">
           <Navbar.Brand as={NavLink} to='/'>
-            <img src='/public/images/harrypotter-logo.png' alt='Logo de la Web' style={stylesLogo} />
+            <img src='/Img/harrypotter-logo.png' alt='Logo de la Web' style={stylesLogo} />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

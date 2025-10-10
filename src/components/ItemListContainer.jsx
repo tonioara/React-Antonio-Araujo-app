@@ -8,15 +8,15 @@ import TrenLoading from './TrenLoading';
 
 import { useParams } from 'react-router-dom';
 
-
 const houseBackgrounds = {
-  Gryffindor: '/public/images/gryffindorFondo.1.jpg', 
-  Slytherin: '/public/images/slytherinFondo.1.jpg',   
-  Hufflepuff: '/public/images/hufflepuffFondo.jpg', 
-  Ravenclaw: '/public/images/ravenclawFondo.jpg',   
+  // Asegúrate de que las claves sigan siendo 'Gryffindor', 'Slytherin', etc.
+  Gryffindor: '/Img/Gryffindor.jpg',
+  Slytherin: '/Img/Slytherin.jpg',   // ¡Así debe quedar!
+  Hufflepuff: '/Img/Hufflepuff.jpg',
+  Ravenclaw: '/Img/Ravenclaw.jpg',
 };
 
-const HogwartsBackground = '/public/images/HogwartsFondo.avif';
+
 
 function ItemListContainer({ mensajeBienvenida }) {
 
@@ -55,7 +55,9 @@ function ItemListContainer({ mensajeBienvenida }) {
       })
   }, [house]);
 
-// Uso de las rutas absolutas para crear el estilo
+const HogwartsBackground = 'images/HogwartsFondo.avif'; // ¡El de Hogwarts también debe omitir 'public'!
+
+// Y en tu JSX:
 const backgroundImage = house ? `url(${houseBackgrounds[house]})` : `url(${HogwartsBackground})`;
 
   return (
