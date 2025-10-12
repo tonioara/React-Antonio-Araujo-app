@@ -1,12 +1,29 @@
-# React + Vite
+# Coder Flex App 🛒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto fue realizado para aprender las bases de react con JS en CoderHouse. 
+El curso fue dictado por la Profesora Laura Therisod
 
-Currently, two official plugins are available:
+![app](/public/Img/Capturaweb.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+### Instalación ⚙️
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone el repositorio
+2. Hacer el comando `cd card-harrypotter-app` para moverse a la carpeta raiz del proyecto
+3. Instale dependencias con el comando `npm install`
+4. Para levantar el proyecto de manera local ejecute el comando `npm run dev`
+
+
+### Version Host 💻
+Si desea ver el proyecto online, puede ingresar al siguiente link [Coder Flex App](https://react-antonio-araujo-app.vercel.app/)
+
+
+### Librerias utilizadas 📖
+
+
+- [Firebase](https://firebase.google.com/): como base de datos.
+- [React Router Dom ](https://reactrouter.com/): utilizada para la navegacion interna de la app.
+- [React Bootstrap](https://react-bootstrap.netlify.app/): para el styling de la app.
+
+
+Desarrollado por Antonio 🤭
