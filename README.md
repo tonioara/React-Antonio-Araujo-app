@@ -1,6 +1,6 @@
 ## 💻 Coder Flex App 🛒
 
-### Un E-commerce Minimalista de Componentes de PC
+### Un E-commerce de tarjetas de los personajes de Harry Potter. 
 
 ¡Bienvenido! **Coder Flex App** es un proyecto de e-commerce completamente funcional, desarrollado como mi proyecto final para el curso de **React con JavaScript** en CoderHouse. Nació de la idea de construir una tienda en línea rápida e intuitiva, enfocada en la venta de tarjetas de Harry Potter .
 
