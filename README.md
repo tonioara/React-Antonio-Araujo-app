@@ -30,8 +30,8 @@ Este proyecto fue un viaje increíble para afianzar mis conocimientos en:
 
 La aplicación cuenta con las siguientes funcionalidades principales:
 
-* **Listado de Productos:** Visualización de todos los componentes de PC disponibles.
-* **Filtro por Categoría:** Navegación dinámica para ver solo "Placas de Video", "Procesadores", etc.
+* **Listado de Productos:** Visualización de todos los personajes disponibles.
+* **Filtro por Categoría:** Navegación dinámica para filtar personaje segun la casa que pertence.
 * **Detalle del Producto:** Vista individual con descripción, precio y contador para añadir al carrito.
 * **Gestión de Carrito:** Añadir, eliminar y ajustar la cantidad de productos en el carrito.
 * **Generación de Órdenes:** Proceso de *checkout* con persistencia de datos en Firebase.
